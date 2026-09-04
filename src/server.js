@@ -13,10 +13,25 @@ const onRequest = (request, response) => {
         responses.getMessage(request, response);
 
     }
+    else if(request.url === '/style.css'){
+         responses.getCSS(request, response);
+    }
     else{
         responses.getIndex(request, response);
     }
-    //responses.getIndex(request, response);
+
+    // switch(request.url){
+    //     case '/page2':
+    //         responses.getClient2(request, response);
+    //         break;
+    //     case '/message':
+    //         responses.getMessage(request, response);
+    //         break;
+    //     default:
+    //         responses.getIndex(request, response);
+    //         break;
+    // }
+    // responses.getIndex(request, response);
 };
 
 http.createServer(onRequest).listen(port, ()=>{
